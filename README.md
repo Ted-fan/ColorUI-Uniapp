@@ -1,8 +1,10 @@
 # miniprogram
 
-## Project setup
+## 项目安装与运行
 ```
-yarn install
+1.下载项目
+2.npm install
+3.npm run dev:mp-weixin
 ```
 
 ### Compiles and hot-reloads for development
