@@ -1,0 +1,16 @@
+.aq-width-full {
+    width: 100%
+}
+
+/* // 行内垂直居中 */
+.aq-vertical-center {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* // 行内水平 & 垂直居中 */
+.aq-vertical-middle {
+    display: flex !important;
+    align-items: center !important;
+}
