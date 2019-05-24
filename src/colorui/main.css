@@ -2676,11 +2676,13 @@ button.icon.lg {
 .cu-modal.drawer-modal.show .cu-dialog {
 	transform: translateX(0%);
 }
-.cu-modal .cu-dialog>.cu-bar:first-child .action{
-  min-width: 100rpx;
-  margin-right: 0;
-  min-height: 100rpx;
+
+.cu-modal .cu-dialog>.cu-bar:first-child .action {
+	min-width: 100rpx;
+	margin-right: 0;
+	min-height: 100rpx;
 }
+
 /* ==================
          轮播
  ==================== */
@@ -3110,11 +3112,13 @@ scroll-view.cu-steps .cu-item {
 	position: relative;
 	overflow: hidden;
 }
+
 .grid.grid-square>view.bg-img image {
 	width: 100%;
 	height: 100%;
 	position: absolute;
 }
+
 .grid.col-1.grid-square>view {
 	padding-bottom: 100%;
 	height: 0;

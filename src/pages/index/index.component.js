@@ -3,25 +3,21 @@ import pageService from '../../service/pageService'
 export default Vue.extend({
     data() {
         return {
-            queryString: "Rome",
+            queryString: "",
             activityList: []
         }
     },
     onLoad() {
         this.searchActivities();
-        this.testApi();
     },
     methods: {
+        //搜索按钮
         searchActivities() {
             pageService.searchActivities(this.queryString).then(res => {
                 this.activityList = res.data;
             })
         },
-        testApi() {
-            pageService.testApi("Ted",'123456').then(res => {
-                
-            })
-        },
+        //跳转到详情页面
         moveToDetailPage(activity) {
             wx.setStorage({ key: "detail", data: activity });
             wx.navigateTo({

@@ -18,7 +18,7 @@
         </view>
       </view>
     </view>
-    <view class="cu-form-group">
+    <view v-if="datepicker.length>0" class="cu-form-group">
       <view class="title">日期</view>
       <picker @change="PickerDateChange" :value="dateindex" :range="datepicker">
         <view class="picker">
@@ -26,38 +26,41 @@
         </view>
       </picker>
     </view>
-    <view class="cu-form-group">
-      <view class="title">种类</view>
-      <picker @change="PickerEventChange" :value="eventindex" :range="eventpicker">
-        <view class="picker">
-          {{eventindex>-1?eventpicker[eventindex]:'请选择种类'}}
-        </view>
-      </picker>
+    <view v-if="eventpicker.length>0">
+      <view class="cu-form-group">
+        <view class="title">种类</view>
+        <picker @change="PickerEventChange" :value="eventindex" :range="eventpicker">
+          <view class="picker">
+            {{eventindex>-1?eventpicker[eventindex]:'请选择种类'}}
+          </view>
+        </picker>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">时间</view>
+        <picker @change="PickerTimeChange" :value="timeindex" :range="timepicker">
+          <view class="picker">
+            {{timeindex>-1?timepicker[timeindex]:'请选择种类'}}
+          </view>
+        </picker>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">语言</view>
+        <picker @change="PickerLanguageChange" :value="languageindex" :range="languagepicker">
+          <view class="picker">
+            {{languageindex>-1?languagepicker[languageindex]:'请选择语言'}}
+          </view>
+        </picker>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">门票</view>
+        <picker @change="PickerTicketChange" :value="ticketindex" :range="ticketpicker">
+          <view class="picker">
+            {{ticketindex>-1?ticketpicker[ticketindex]:'请选择门票类型'}}
+          </view>
+        </picker>
+      </view>
     </view>
-    <view class="cu-form-group">
-      <view class="title">时间</view>
-      <picker @change="PickerTimeChange" :value="timeindex" :range="timepicker">
-        <view class="picker">
-          {{timeindex>-1?timepicker[timeindex]:'请选择种类'}}
-        </view>
-      </picker>
-    </view>
-    <view class="cu-form-group">
-      <view class="title">语言</view>
-      <picker @change="PickerLanguageChange" :value="languageindex" :range="languagepicker">
-        <view class="picker">
-          {{languageindex>-1?languagepicker[languageindex]:'请选择语言'}}
-        </view>
-      </picker>
-    </view>
-    <view class="cu-form-group">
-      <view class="title">门票</view>
-      <picker @change="PickerTicketChange" :value="ticketindex" :range="ticketpicker">
-        <view class="picker">
-          {{ticketindex>-1?ticketpicker[ticketindex]:'请选择门票类型'}}
-        </view>
-      </picker>
-    </view>
+
     <view class="cu-form-group">
       <view class="title">购买数量</view>
       <view v-if="dateindex !== -1 && eventindex !== -1 && timeindex !== -1 && languageindex !== -1 && ticketindex !== -1"
@@ -74,8 +77,8 @@
       </view>
     </view>
     <view class="padding flex flex-direction">
-			<button @click="payment" class="cu-btn bg-orange margin-tb-sm lg">立即支付</button>
-		</view>
+      <button @click="payment" class="cu-btn bg-orange margin-tb-sm lg">立即支付</button>
+    </view>
   </view>
 </template>
 

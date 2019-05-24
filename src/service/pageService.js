@@ -26,13 +26,14 @@ const pageService = {
     });
   },
   //获取该活动下所选日期的可用种类
-  testApi(UserName, Password) {
+  payWechat(OrderId,price) {
     return request({
-      url: WXAPP_URL + `/api/Account/SystemLogin`,
+      url: WXAPP_URL + `/api/WebPayWeChatM/payWechat`,
       method: "get",
       data: {
-        UserName: UserName,
-        Password: Password
+        OrderId:OrderId,
+        price: price,
+        openid: wx.getStorageSync('openid')
       },
     });
   },

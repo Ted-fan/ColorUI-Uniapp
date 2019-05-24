@@ -1,9 +1,20 @@
 {
-	"pages": [ 
-		{
+	"pages": [{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "活动列表"
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "订单列表"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "个人中心"
 			}
 		},
 		{
@@ -13,6 +24,43 @@
 			}
 		}
 	],
+	"subPackages": [{
+		"root": "pages/subPackage",
+		"pages": [{
+			"path": "subIndex/subIndex",
+			"style": {
+				"navigationBarTitleText": "分包页面"
+			}
+		}]
+	}],
+	"preloadRule": {
+		"pages/subPackage/subIndex/subIndex": {
+			"network": "all",
+			"packages": ["__APP__"]
+		}
+	},
+	"tabBar": {
+		"selectedColor": "#1296db",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "./static/tabicon/home.png",
+				"selectedIconPath": "./static/tabicon/home_on.png"
+			},
+			{
+				"pagePath": "pages/order/order",
+				"text": "订单",
+				"iconPath": "./static/tabicon/order.png",
+				"selectedIconPath": "./static/tabicon/order_on.png"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的",
+				"iconPath": "./static/tabicon/mine.png",
+				"selectedIconPath": "./static/tabicon/mine_on.png"
+			}
+		]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

@@ -14,3 +14,18 @@
     display: flex !important;
     align-items: center !important;
 }
+
+/* $padding-list: 'padding-top',
+'padding-bottom',
+'padding-left',
+'padding-right';
+
+@each $padding in $padding-list {
+  @for $i from 0 through 52 {
+    @if $i%4==0 {
+      .aq-#{$padding}-#{$i} {
+        #{$padding}: 1px * $i !important;
+      }
+    }
+  }
+} */

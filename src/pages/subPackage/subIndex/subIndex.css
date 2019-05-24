@@ -1,0 +1,7 @@
+swiper {
+    display:block;
+    padding-bottom: 55px;
+}    
+swiper-item{
+    overflow: scroll
+}

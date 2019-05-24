@@ -2,20 +2,25 @@
 import { getOpenId } from './utils/utils'
 export default {
   onLaunch: function () {
-    // 登录 发送 res.code 到后台换取 openId, sessionKey, unionId
+    // 登录 发送 res.code 到后台换取 openId, sessionKey
     wx.login({
       success: res => {
         getOpenId(res.code).then(res => {
           wx.setStorage({
             key: 'openid',
-            data: resp.data.Data.openid,
+            data: res.Data.openid,
           });
           wx.setStorage({
             key: 'session_key',
-            data: resp.data.Data.session_key
+            data: res.Data.session_key
           })
         })
       }
+    })
+    let mobileInfo = uni.getSystemInfoSync();
+    wx.setStorage({
+      key: 'mobileInfo',
+      data: mobileInfo
     })
   },
   onShow: function () {

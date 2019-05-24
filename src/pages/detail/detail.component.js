@@ -24,11 +24,10 @@ export default Vue.extend({
             //数量
             ticketNum: 1,
             //总价
-            totalPrice: 0
+            totalPrice: 0,
         }
     },
     onLoad() {
-        console.log(this.dateindex && this.eventindex && this.timeindex && this.languageindex && this.ticketindex);
         this.activityDetail = wx.getStorageSync('detail');
         this.totalPrice = this.activityDetail.original_retail_price.value
         this.getDates(this.activityDetail.uuid);
@@ -52,6 +51,7 @@ export default Vue.extend({
             pageService.getDates(uuid).then(res => {
                 this.datePickerModel = res;
                 this.datepicker = res.map(v => v.day);
+
             })
         },
         //获取该活动下所选日期的可用种类
@@ -77,7 +77,6 @@ export default Vue.extend({
         //获取该活动下所选日期的可用种类
         PickerTimeChange(e) {
             this.timeindex = e.detail.value;
-
             //重置各选信息
             this.languageindex = -1;
             this.ticketindex = -1;
@@ -128,10 +127,25 @@ export default Vue.extend({
         //支付
         payment() {
             if (this.dateindex !== -1 && this.eventindex !== -1 && this.timeindex !== -1 && this.languageindex !== -1 && this.ticketindex !== -1) {
-                
+                let OrderId = 'dadefvcevgrbvgrb' + Math.floor(Math.random() * Math.floor(10));
+                pageService.payWechat(OrderId, this.totalPrice).then(res => {
+                    let dataparam = res.Data;
+                    let params = {
+                        timeStamp: dataparam.timeStamp,
+                        nonceStr: dataparam.nonceStr,
+                        package: dataparam.package,
+                        signType: dataparam.signType,
+                        paySign: dataparam.paySign,
+                    }
+                    wx.requestPayment(params)
+                })
             }
             else {
-                alert("请先完善购票信息");
+                wx.showToast({
+                    title: '请先完善订单信息',
+                    icon: 'none',
+                    duration: 2000
+                })
             }
         }
 
