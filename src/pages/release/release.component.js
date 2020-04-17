@@ -1,8 +1,10 @@
 import Vue from 'vue';
+
 export default Vue.extend({
-	name: 'orderPage',
+	name: "releasePage",
 	data() {
 		return {
+
 		}
 	},
 	created() {

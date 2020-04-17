@@ -1,33 +1,18 @@
-<script>
-import { getOpenId } from './utils/utils'
+<script>  
+import { tabbar } from './tabbar/tabbar'
 export default {
   onLaunch: function () {
-    // 登录 发送 res.code 到后台换取 openId, sessionKey
-    wx.login({
-      success: res => {
-        getOpenId(res.code).then(res => {
-          wx.setStorage({
-            key: 'openid',
-            data: res.Data.openid,
-          });
-          wx.setStorage({
-            key: 'session_key',
-            data: res.Data.session_key
-          })
-        })
-      }
-    })
-    let mobileInfo = uni.getSystemInfoSync();
-    wx.setStorage({
-      key: 'mobileInfo',
-      data: mobileInfo
-    })
+    console.log('App Launch，app启动')
+    this.$store.commit("SET_COLOR", tabbar);
+    this.$store.commit("SET_TABBAR", tabbar.tabbar);
   },
   onShow: function () {
+    console.log('App Show，app展现在前台')
   },
   onHide: function () {
+    console.log('App Hide，app不再展现在前台')
   }
-}
+}  
 </script>
 
 <style>
