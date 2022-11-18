@@ -57,7 +57,7 @@
     "@dcloudio/webpack-uni-pages-loader": "^2.0.0-26820200330001",
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-typescript": "*",
-    "@vue/cli-service": "~4.2.0",
+    "@vue/cli-service": "~5.0.8",
     "babel-plugin-import": "^1.11.0",
     "cross-env": "^7.0.2",
     "postcss-comment": "^2.0.0",
